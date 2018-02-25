@@ -34,4 +34,5 @@ ext{
     RETROFIT_VERSION = '2.3.0'
     OKHTTP = '3.8.1'
     GLIDE = '4.6.1'
+    PICASSO = '2.5.2'
 }

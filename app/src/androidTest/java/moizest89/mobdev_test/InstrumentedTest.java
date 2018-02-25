@@ -30,6 +30,7 @@ import moizest89.mobdev_test.ui.main.IMainView;
 import moizest89.mobdev_test.ui.main.MainActivity;
 import moizest89.mobdev_test.ui.main.MainAdapter;
 import moizest89.mobdev_test.ui.main.MainPresenter;
+import moizest89.mobdev_test.util.Util;
 
 import static android.content.ContentValues.TAG;
 import static junit.framework.Assert.assertEquals;
@@ -53,7 +54,7 @@ import static org.mockito.Mockito.when;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
+public class InstrumentedTest {
 
 
     @Rule
@@ -112,6 +113,12 @@ public class ExampleInstrumentedTest {
 
     }
 
+
+    @Test
+    public void testCapitalizeText(){
+
+        assertEquals("Title", Util.capitalizeText("title"));
+    }
 
 
     @Rule
