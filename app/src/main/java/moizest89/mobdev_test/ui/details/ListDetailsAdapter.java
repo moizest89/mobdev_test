@@ -5,11 +5,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import moizest89.mobdev_test.R;
+
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 /**
  * Created by moizest89 on 2/25/18.
@@ -20,6 +29,7 @@ public class ListDetailsAdapter extends RecyclerView.Adapter<ListDetailsAdapter.
 
     private List<String> mData = new ArrayList<>();
     private Context context;
+
 
     public ListDetailsAdapter(Context context) {
         this.context = context;
@@ -39,6 +49,13 @@ public class ListDetailsAdapter extends RecyclerView.Adapter<ListDetailsAdapter.
     @Override
     public void onBindViewHolder(Holder holder, int position) {
 
+
+        Picasso.with(context)
+                .load(mData.get(position))
+                .placeholder(R.drawable.dog_placeholder)
+                .error(R.drawable.dog_placeholder)
+                .into(holder.imageView);
+
     }
 
 
@@ -54,8 +71,13 @@ public class ListDetailsAdapter extends RecyclerView.Adapter<ListDetailsAdapter.
 
     public class Holder extends RecyclerView.ViewHolder{
 
+        @BindView(R.id.imageView)
+        ImageView imageView;
+
         public Holder(View itemView) {
             super(itemView);
+
+            ButterKnife.bind(this, itemView);
         }
     }
 

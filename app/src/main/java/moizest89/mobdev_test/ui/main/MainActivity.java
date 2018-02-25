@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -16,9 +17,16 @@ import butterknife.ButterKnife;
 import moizest89.mobdev_test.R;
 import moizest89.mobdev_test.base.BaseActivity;
 import moizest89.mobdev_test.data.models.Breeds;
+import moizest89.mobdev_test.ui.details.ListDetailsActivity;
+import moizest89.mobdev_test.util.OnItemClickListener;
 import moizest89.mobdev_test.util.Util;
 
-public class MainActivity extends BaseActivity implements IMainView{
+import static moizest89.mobdev_test.util.Util.INTENT_SENDED_DATA;
+
+public class MainActivity extends BaseActivity implements
+        IMainView,
+        OnItemClickListener
+        {
 
 
     @BindView(R.id.toolbar)
@@ -42,6 +50,7 @@ public class MainActivity extends BaseActivity implements IMainView{
         setSupportActionBar(toolbar);
 
         this.mAdapter = new MainAdapter(this);
+        this.mAdapter.setOnItemClickListener(this);
 
 //        this.mRecyclerView = findViewById(R.id.recyclerView);
 //        this.mProgressBar = findViewById(R.id.progressBar);
@@ -136,5 +145,16 @@ public class MainActivity extends BaseActivity implements IMainView{
     protected void onSaveInstanceState(Bundle outState) {
         outState.putStringArrayList(Util.SAVE_INSTANCE, (ArrayList<String>) mAdapter.getData());
         super.onSaveInstanceState(outState);
+    }
+
+
+    @Override
+    public void onItemClickListener(View view, int position) {
+        Bundle bundle  = new Bundle();
+        bundle.putString(INTENT_SENDED_DATA, mAdapter.getItemValue(position));
+
+        Util.changeActivity(this, ListDetailsActivity.class, bundle, false);
+
+
     }
 }

@@ -15,6 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import moizest89.mobdev_test.R;
 import moizest89.mobdev_test.data.models.Breeds;
+import moizest89.mobdev_test.util.OnItemClickListener;
 
 /**
  * Created by moizest89 on 2/24/18.
@@ -24,6 +25,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.Holder> {
 
     private List<String> data = new ArrayList<>();
     private Context context;
+    private OnItemClickListener onItemClickListener;
+
 
     public MainAdapter() {
     }
@@ -75,7 +78,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.Holder> {
 
     }
 
-    public class Holder extends RecyclerView.ViewHolder {
+    public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         @BindView(R.id.text_view_name)
         TextView text_view_name;
@@ -85,6 +88,17 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.Holder> {
 
             ButterKnife.bind(this, itemView);
 
+            itemView.setOnClickListener(this);
+
         }
+
+        @Override
+        public void onClick(View view) {
+            onItemClickListener.onItemClickListener(view, getAdapterPosition());
+        }
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }

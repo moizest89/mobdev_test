@@ -28,7 +28,7 @@ public class ListDetailsPresenter extends BasePresenter<IListDetailsView>{
     }
 
 
-    private void getData(String breed){
+    public void getData(String breed){
 
         this.dataManager.getImagePerBreadItems(breed, new DataManagerCallBack<BreedImages>() {
             @Override

@@ -1,5 +1,6 @@
 package moizest89.mobdev_test.ui.details;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +25,7 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
 
     private ListDetailsPresenter mPresenter;
     private ListDetailsAdapter mAdapter;
+    private String breed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +34,18 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
 
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+        if(intent != null){
+            this.breed = intent.getStringExtra(Util.INTENT_SENDED_DATA);
+        }
+
         this.mAdapter = new ListDetailsAdapter(this);
         this.mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         this.mRecyclerView.setAdapter(this.mAdapter);
-        
+
         this.mPresenter = new ListDetailsPresenter(this);
         this.mPresenter.attachView(this);
+        this.mPresenter.getData(this.breed);
 
 
     }

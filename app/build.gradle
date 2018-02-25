@@ -44,6 +44,9 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.BUTTERKNIFE"
 
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.GLIDE"
+//    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.ext.GLIDE"
+
+    compile "com.squareup.picasso:picasso:$rootProject.ext.PICASSO"
 
 
     testCompile "org.mockito:mockito-core:+"
