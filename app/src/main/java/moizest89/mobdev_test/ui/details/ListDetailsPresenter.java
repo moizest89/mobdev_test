@@ -7,6 +7,7 @@ import moizest89.mobdev_test.data.manager.DataManager;
 import moizest89.mobdev_test.data.manager.DataManagerCallBack;
 import moizest89.mobdev_test.data.manager.DataManagerError;
 import moizest89.mobdev_test.data.models.BreedImages;
+import moizest89.mobdev_test.util.Util;
 
 /**
  * Created by moizest89 on 2/25/18.
@@ -29,7 +30,7 @@ public class ListDetailsPresenter extends BasePresenter<IListDetailsView>{
 
 
     public void getData(String breed){
-
+        setTitleView(breed);
         this.dataManager.getImagePerBreadItems(breed, new DataManagerCallBack<BreedImages>() {
             @Override
             public void onSucces(BreedImages success) {
@@ -51,6 +52,8 @@ public class ListDetailsPresenter extends BasePresenter<IListDetailsView>{
 
     }
 
-
+    private void setTitleView(String breed){
+        getMvpView().setTextTitle(Util.capitalizeText(breed));
+    }
 
 }

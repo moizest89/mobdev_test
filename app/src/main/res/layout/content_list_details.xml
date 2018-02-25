@@ -1,60 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:behavior_overlapTop="40dp"
+    app:behavior_overlapTop="50dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="moizest89.mobdev_test.ui.details.ListDetailsActivity"
     tools:showIn="@layout/activity_list_details">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:layout_gravity="center"
+        android:id="@+id/progressBar"
+        android:alpha="1"
+
+        />
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="2dp"
-        android:layout_margin="5dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp"
-            android:gravity="center"
-            tools:text="@tools:sample/full_names"
-            />
-
-    </android.support.v7.widget.CardView>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/progressBar"
-
-            />
-
+        android:id="@+id/card_view_data"
+        android:alpha="0"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardElevation="5dp"
+        >
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@android:color/white"
             android:id="@+id/recyclerView"
 
             />
+    </android.support.v7.widget.CardView>
 
-    </FrameLayout>
 
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
+</FrameLayout>

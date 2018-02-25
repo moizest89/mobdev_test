@@ -17,4 +17,5 @@ public interface IListDetailsView extends MvpView{
     void showLoader();
     void hideLoader();
     void showErrorMessage();
+    void setTextTitle(String title);
 }

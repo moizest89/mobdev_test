@@ -1,11 +1,15 @@
 package moizest89.mobdev_test.ui.details;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +26,10 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
     RecyclerView mRecyclerView;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.text_view_title)
+    TextView text_view_title;
+    @BindView(R.id.card_view_data)
+    CardView card_view_data;
 
     private ListDetailsPresenter mPresenter;
     private ListDetailsAdapter mAdapter;
@@ -34,6 +42,8 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
 
         ButterKnife.bind(this);
 
+        setToolbar();
+
         Intent intent = getIntent();
         if(intent != null){
             this.breed = intent.getStringExtra(Util.INTENT_SENDED_DATA);
@@ -42,6 +52,26 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
         this.mAdapter = new ListDetailsAdapter(this);
         this.mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         this.mRecyclerView.setAdapter(this.mAdapter);
+        this.mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+
+            private int space = 2;
+
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+
+                outRect.left = space;
+                outRect.right = space;
+                outRect.bottom = space;
+
+                // Add top margin only for the first item to avoid double space between items
+                if (parent.getChildLayoutPosition(view) == 0) {
+                    outRect.top = space;
+                } else {
+                    outRect.top = 0;
+                }
+            }
+        });
 
         this.mPresenter = new ListDetailsPresenter(this);
         this.mPresenter.attachView(this);
@@ -50,6 +80,18 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
 
     }
 
+    private void setToolbar(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 
     @Override
     public void setData(BreedImages breedImages) {
@@ -58,12 +100,12 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
 
     @Override
     public void showData() {
-        this.mRecyclerView.animate().alpha(1).setDuration(Util.ANIMATION_DELAY);
+        this.card_view_data.animate().alpha(1).setDuration(Util.ANIMATION_DELAY);
     }
 
     @Override
     public void hideData() {
-        this.mRecyclerView.animate().alpha(0).setDuration(Util.ANIMATION_DELAY);
+        this.card_view_data.animate().alpha(0).setDuration(Util.ANIMATION_DELAY);
     }
 
     @Override
@@ -79,5 +121,10 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
     @Override
     public void showErrorMessage() {
 
+    }
+
+    @Override
+    public void setTextTitle(String title) {
+        this.text_view_title.setText(title);
     }
 }
