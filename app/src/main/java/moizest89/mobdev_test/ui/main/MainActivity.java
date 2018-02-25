@@ -49,6 +49,8 @@ public class MainActivity extends BaseActivity implements
 
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         this.mAdapter = new MainAdapter(this);
         this.mAdapter.setOnItemClickListener(this);
 

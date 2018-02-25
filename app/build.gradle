@@ -54,5 +54,4 @@ dependencies {
     testCompile "org.mockito:mockito-inline:+"
 
 
-
 }

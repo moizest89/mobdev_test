@@ -3,6 +3,10 @@ package moizest89.mobdev_test.ui.details;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +20,7 @@ import butterknife.ButterKnife;
 import moizest89.mobdev_test.R;
 import moizest89.mobdev_test.base.BaseActivity;
 import moizest89.mobdev_test.data.models.BreedImages;
+import moizest89.mobdev_test.util.CustomRecyclerDecoration;
 import moizest89.mobdev_test.util.Util;
 
 public class ListDetailsActivity extends BaseActivity implements IListDetailsView{
@@ -28,8 +33,16 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
     Toolbar toolbar;
     @BindView(R.id.text_view_title)
     TextView text_view_title;
+    @BindView(R.id.text_view_toolbar)
+    TextView text_view_toolbar;
     @BindView(R.id.card_view_data)
     CardView card_view_data;
+    @BindView(R.id.main_container)
+    CoordinatorLayout main_container;
+    @BindView(R.id.app_bar)
+    AppBarLayout app_bar;
+    @BindView(R.id.toolbar_layout)
+    CollapsingToolbarLayout toolbar_layout;
 
     private ListDetailsPresenter mPresenter;
     private ListDetailsAdapter mAdapter;
@@ -52,23 +65,16 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
         this.mAdapter = new ListDetailsAdapter(this);
         this.mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         this.mRecyclerView.setAdapter(this.mAdapter);
-        this.mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+        this.mRecyclerView.addItemDecoration(new CustomRecyclerDecoration(2));
 
-            private int space = 2;
 
+        app_bar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                super.getItemOffsets(outRect, view, parent, state);
-
-                outRect.left = space;
-                outRect.right = space;
-                outRect.bottom = space;
-
-                // Add top margin only for the first item to avoid double space between items
-                if (parent.getChildLayoutPosition(view) == 0) {
-                    outRect.top = space;
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (toolbar_layout.getHeight() + verticalOffset < 2 * ViewCompat.getMinimumHeight(toolbar_layout)) {
+                    text_view_toolbar.animate().alpha(1).setDuration(Util.ANIMATION_DELAY_TOOLBAR);
                 } else {
-                    outRect.top = 0;
+                    text_view_toolbar.animate().alpha(0).setDuration(Util.ANIMATION_DELAY_TOOLBAR);
                 }
             }
         });
@@ -126,5 +132,6 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
     @Override
     public void setTextTitle(String title) {
         this.text_view_title.setText(title);
+        this.text_view_toolbar.setText(title);
     }
 }

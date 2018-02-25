@@ -11,7 +11,8 @@ import android.os.Bundle;
 
 public class Util {
 
-    public final static int ANIMATION_DELAY = 900;
+    public final static int ANIMATION_DELAY = 800;
+    public final static int ANIMATION_DELAY_TOOLBAR = 200;
     public final static String SAVE_INSTANCE = "save_instance";
     public final static String INTENT_SENDED_DATA = "sended_data";
 
