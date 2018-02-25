@@ -2,6 +2,7 @@ package moizest89.mobdev_test.data.manager;
 
 import android.content.Context;
 
+import moizest89.mobdev_test.data.models.BreedImages;
 import moizest89.mobdev_test.data.models.Breeds;
 import moizest89.mobdev_test.remote.ApiService;
 import moizest89.mobdev_test.remote.MobdevTestClient;
@@ -51,6 +52,29 @@ public class DataManager {
         });
 
     }
+
+    public void getImagePerBreadItems(String breed,final DataManagerCallBack<BreedImages> callBack){
+
+        Call<BreedImages> call = this.apiService.getAllImagePerBreed(breed);
+        call.enqueue(new Callback<BreedImages>() {
+            @Override
+            public void onResponse(Call<BreedImages> call, final Response<BreedImages> response) {
+                if(response.isSuccessful()){
+                    callBack.onSucces(response.body());
+                }else{
+                    DataManagerError dataManagerError = new DataManagerError(response);
+                    callBack.onError(dataManagerError);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BreedImages> call, Throwable t) {
+                callBack.onFailure(t);
+            }
+        });
+
+    }
+
 
 
 }
