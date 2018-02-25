@@ -25,6 +25,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.Holder> {
     private List<String> data = new ArrayList<>();
     private Context context;
 
+    public MainAdapter() {
+    }
+
     public MainAdapter(Context context) {
         this.context = context;
     }
@@ -54,7 +57,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.Holder> {
         this.notifyDataSetChanged();
     }
 
-    private String getItemValue(int position){
+    public String getItemValue(int position){
         if(position <= data.size()) {
             return this.data.get(position);
         }else{

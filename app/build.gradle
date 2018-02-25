@@ -44,4 +44,12 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.BUTTERKNIFE"
 
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.GLIDE"
+
+
+    testCompile "org.mockito:mockito-core:+"
+    androidTestCompile "org.mockito:mockito-android:+"
+    testCompile "org.mockito:mockito-inline:+"
+
+
+
 }

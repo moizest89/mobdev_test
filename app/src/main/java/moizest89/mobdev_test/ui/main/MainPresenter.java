@@ -2,6 +2,9 @@ package moizest89.mobdev_test.ui.main;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import moizest89.mobdev_test.base.BasePresenter;
 import moizest89.mobdev_test.data.manager.DataManager;
 import moizest89.mobdev_test.data.manager.DataManagerCallBack;
