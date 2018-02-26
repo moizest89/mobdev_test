@@ -9,10 +9,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import moizest89.mobdev_test.base.MvpView;
-import moizest89.mobdev_test.ui.details.ListDetailsActivity;
-import moizest89.mobdev_test.ui.details.ListDetailsPresenter;
-import moizest89.mobdev_test.ui.main.MainActivity;
-import moizest89.mobdev_test.ui.main.MainPresenter;
+import moizest89.mobdev_test.ui.details.list.ListDetailsActivity;
+import moizest89.mobdev_test.ui.details.list.ListDetailsPresenter;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;

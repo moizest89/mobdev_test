@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/main_container"
-    tools:context="moizest89.mobdev_test.ui.details.ListDetailsActivity">
+    tools:context="moizest89.mobdev_test.ui.details.list.ListDetailsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"

@@ -15,6 +15,7 @@ public class Util {
     public final static int ANIMATION_DELAY_TOOLBAR = 200;
     public final static String SAVE_INSTANCE = "save_instance";
     public final static String INTENT_SENDED_DATA = "sended_data";
+    public final static String INTENT_SENDED_DATA_POSITION = "position";
 
 
     public static void changeActivity(Context context, Class<?> target, Bundle options, boolean finish) {

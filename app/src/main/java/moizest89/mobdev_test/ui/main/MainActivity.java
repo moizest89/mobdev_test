@@ -1,7 +1,6 @@
 package moizest89.mobdev_test.ui.main;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -18,7 +17,7 @@ import butterknife.ButterKnife;
 import moizest89.mobdev_test.R;
 import moizest89.mobdev_test.base.BaseActivity;
 import moizest89.mobdev_test.data.models.Breeds;
-import moizest89.mobdev_test.ui.details.ListDetailsActivity;
+import moizest89.mobdev_test.ui.details.list.ListDetailsActivity;
 import moizest89.mobdev_test.util.OnItemClickListener;
 import moizest89.mobdev_test.util.Util;
 

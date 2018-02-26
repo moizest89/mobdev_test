@@ -21,6 +21,9 @@ Se creo una [aplicacion](https://github.com/moizest89/mobdev_test/blob/master/ex
  - Splash
  - Lista de Razas
  - Lista de imagenes por raza
+ - Detalle de la imagen (con zoom)
+
+![image_app](https://raw.githubusercontent.com/moizest89/mobdev_test/master/external/app_view.png)
 
 ![image_app](https://raw.githubusercontent.com/moizest89/mobdev_test/master/external/app_view.png)
 
