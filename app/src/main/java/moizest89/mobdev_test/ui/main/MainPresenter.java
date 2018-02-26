@@ -42,12 +42,16 @@ public class MainPresenter extends BasePresenter<IMainView>{
 
             @Override
             public void onError(DataManagerError error) {
-
+                getMvpView().hideLoader();
+                getMvpView().hideData();
+                getMvpView().showErrorMessage();
             }
 
             @Override
             public void onFailure(Throwable t) {
-
+                getMvpView().hideLoader();
+                getMvpView().hideData();
+                getMvpView().showErrorMessage();
             }
         });
     }

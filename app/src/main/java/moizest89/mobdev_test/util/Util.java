@@ -16,11 +16,6 @@ public class Util {
     public final static String SAVE_INSTANCE = "save_instance";
     public final static String INTENT_SENDED_DATA = "sended_data";
 
-    public static String generateBreadImageUrl(String bread_name){
-
-        return String.format("Hello %s answered your question", bread_name);
-    }
-
 
     public static void changeActivity(Context context, Class<?> target, Bundle options, boolean finish) {
         Intent i = new Intent(context, target);
