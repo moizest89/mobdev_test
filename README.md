@@ -1,4 +1,4 @@
-![mobdev_test logo](https://raw.githubusercontent.com/moizest89/mobdev_test/develop/app/src/main/res/drawable-hdpi/logo.png)
+![mobdev_test logo](https://raw.githubusercontent.com/moizest89/mobdev_test/master/app/src/main/res/drawable-hdpi/logo.png)
 
 # MobDev - Prueba Tecnica
 
@@ -16,11 +16,13 @@ Haciendo uso de la API publica [Dog Api] (https://dog.ceo/dog-api/), realiza lo 
 
 ##Solucion
 
-Se creo una aplicacion sencilla con 3 Activities
+Se creo una [aplicacion](https://github.com/moizest89/mobdev_test/blob/master/external/app-release.apk?raw=true) sencilla con 3 Activities
 
  - Splash
  - Lista de Razas
  - Lista de imagenes por raza
+
+![image_app](https://raw.githubusercontent.com/moizest89/mobdev_test/master/external/app_view.png)
 
 Se creo una aplicacion sencilla con 3 Activities
 
