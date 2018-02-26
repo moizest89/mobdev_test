@@ -4,4 +4,5 @@
     <string name="title_activity_list_details">ListDetailsActivity</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="app_label_test_application">Prueba Tecnica</string>
+    <string name="title_activity_list_details_image">ListDetailsImageActivity</string>
 </resources>
