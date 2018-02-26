@@ -6,7 +6,7 @@ Este es un repositorio que muestra el prouecto para la prueba tecnica en MobDev 
 
 ##Descripcion
 
-Haciendo uso de la API publica [Dog Api] (https://dog.ceo/dog-api/), realiza lo siguinte:
+Haciendo uso de la API publica [Dog Api](https://dog.ceo/dog-api/), realiza lo siguinte:
 
 - Crear una app que muestre una lista de las razas de perros disponibles  /api/breeds/list
 
