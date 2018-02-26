@@ -134,4 +134,11 @@ public class ListDetailsActivity extends BaseActivity implements IListDetailsVie
         this.text_view_title.setText(title);
         this.text_view_toolbar.setText(title);
     }
+
+
+    @Override
+    protected void onDestroy() {
+        mPresenter.detachView();
+        super.onDestroy();
+    }
 }
