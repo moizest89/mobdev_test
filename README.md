@@ -34,8 +34,8 @@ En el proyecto se utilizaron las siguintes librerias:
 - [Retrofit](http://square.github.io/retrofit/)
 - [Okhttp3](https://github.com/square/okhttp/tree/master/okhttp/src/main/java/okhttp3)
 - [Butterknife](http://jakewharton.github.io/butterknife/)
-- [Picasso] (http://square.github.io/picasso/)
-- [Junit] (https://mvnrepository.com/artifact/junit/junit)
+- [Picasso](http://square.github.io/picasso/)
+- [Junit](https://mvnrepository.com/artifact/junit/junit)
 - [Mockito](http://site.mockito.org/)
 
 
