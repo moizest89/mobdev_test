@@ -25,8 +25,6 @@ Se creo una [aplicacion](https://github.com/moizest89/mobdev_test/blob/master/ex
 
 ![image_app](https://raw.githubusercontent.com/moizest89/mobdev_test/master/external/app_view.png)
 
-![image_app](https://raw.githubusercontent.com/moizest89/mobdev_test/master/external/app_view.png)
-
 Se creo una aplicacion sencilla con 3 Activities
 
  - [MVP](https://www.wikiwand.com/en/Model%E2%80%93view%E2%80%93presenter)

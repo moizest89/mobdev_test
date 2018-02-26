@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import moizest89.mobdev_test.R;
 import moizest89.mobdev_test.data.models.Breeds;
 import moizest89.mobdev_test.util.OnItemClickListener;
+import moizest89.mobdev_test.util.Util;
 
 /**
  * Created by moizest89 on 2/24/18.
@@ -50,7 +51,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.Holder> {
 
         String mBreed = this.data.get(position);
 
-        holder.text_view_name.setText(mBreed);
+        holder.text_view_name.setText(Util.capitalizeText(mBreed));
 
 
     }
